@@ -83,6 +83,19 @@ body {
     color: var(--SLATE, #2E2F42);
 }
 
+.menu-link.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--OCEAN, #404BBF);
+}
+
+.menu-link.active {
+color: var(--OCEAN, #404BBF);
+}
+
 .menu-link:hover,
 .menu-link:focus {
      color: #404BBF; 
@@ -143,13 +156,17 @@ body {
 
 /* ======== HERO STYLES ======== */
 .hero {
-    /*width: 1440px;
+    width: 1440px;
     height: 600px;
     margin-left: auto;
-    margin-right: auto;*/
+    margin-right: auto;
     padding-top: 188px;
     padding-bottom: 188px;
     background: var(--NAVY-BLUE, #2E2F42);
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.70), 
+        rgba(46, 47, 66, 0.70)),
+    url(../images/hero/hero-bg.jpg);
 }
 
 .hero-title {
@@ -216,6 +233,24 @@ body {
     width: 264px;
 }
 
+.company-wrapper {
+    position: relative;
+    margin-bottom: 8px;
+    width: 264px;
+    height: 112px;
+    border-radius: 4px;
+    border: 1px solid var(--LIGHT-SLATE, #8E8F99);
+    background: var(--CLOUD, #F4F4FD);
+}
+
+.company-icon {
+position: absolute;
+top: 24px;
+left: 100px;
+}
+
+
+
 /* ======== /ABOUT COMPANY STYLES ======== */
 
 /* ========  OUR TEAM STYLES ======== */
@@ -252,6 +287,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
+    margin-bottom: 8px;
     color: var(--SLATE, #434455);
 }
 
@@ -271,7 +307,32 @@ body {
     padding: 32px 0;
 }
 
+.team-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
 
+.team-items {
+    width: 40px;
+    height: 40px;
+}
+
+.team-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    border-radius: 50%;
+}
+
+.team-link:focus,
+.team-link:hover {
+    background-color: #404BBF;
+}
 /* ======== /OUR TEAM STYLES ======== */
 
 /* ======== PORTFOLIO STYLES ======== */
@@ -309,36 +370,73 @@ body {
     color: var(--SLATE, #434455);
 }
 
-.portfolio-menu {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 48px;
-} 
-
 .portfolio-content {
     padding: 32px 16px;
     border: 1px solid var(--CORNFLOWER, #E7E9FC);
     border-top: none;
     background: var(--WHITE, #FFF);
-
-    .portfolio-item {
-    width: calc((100% - 48px) / 3);
-    }
 }
+
+.portfolio-item {
+    width: calc((100%-48px) / 3);
+}
+
+.portfolio-menu {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 48px;
+}
+
+.portfolio-overlay {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--CLOUD, #F4F4FD);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+}
+
+.portfolio-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 300px;
+    background-color: #4D5AE5;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover .overlay {
+transform: translateY(0);
+}
+
 /* ======== /PORTFOLIO STYLES ======== */
 
 /* ======== FOOTER STYLES ======== */
 .page-footer {
-    /*width: 1440px;
+    display: flex;
+    width: 1440px;
     height: 312px;
     margin-right: auto;
-    margin-left: auto;*/
+    margin-left: auto;
     padding-top: 100px;
     padding-bottom: 100px;
+    padding-left: 156px;
     background: var(--NAVY-BLUE, #2E2F42);
 }
-.page-logo-footer {
+
+.page-footer-logo {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -350,7 +448,7 @@ body {
     color: var(--IRIS, #4D5AE5);
 }
 
-.page-logo-footer-span {
+.page-footer-logo-span {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -368,5 +466,45 @@ body {
     color: var(--CLOUD, #F4F4FD);
 }
 
+.page-footer-title {
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    color: var(--WHITE, #FFF);
+}
+
+.page-footer-content {
+    margin-right: 120px;
+}
+
+.page-footer-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.page-footer-items {
+    width: 40px;
+    height: 40px;
+}
+
+.page-footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    border-radius: 50%;
+}
+
+.page-footer-link:focus,
+.page-footer-link:hover {
+    background-color: #31D0AA;
+
 /* ======== /FOOTER STYLES ======== */
-    
