@@ -102,7 +102,7 @@ body {
 
 .menu-link.active {
      color: var(--OCEAN, #404BBF);
-     position: relative;
+     /*position: relative;*/
 }
 
 .menu-link:hover,
@@ -112,7 +112,7 @@ body {
 
 .menu-item {
     padding: 24px 0;
-    /*position: relative;*/
+    position: relative;
 }
 
 .page-navigator {
